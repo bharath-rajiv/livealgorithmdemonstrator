@@ -1,6 +1,6 @@
 # List of all the Algorithms implemented in this repository
 
-## Searching Alogrithms(Linear Search, Binary Search, Jump Search, Interpolation Search, Exponential Search, Fibonacci Search, Ternary Search, Sublist Search,A* Search, Depth First Search, Breadth First Search)
+## Searching Alogrithms
 
     1    Linear search: This algorithm checks every item in a list or array until it finds the target value.
 
@@ -24,7 +24,7 @@
 
     11    Sublist search: This algorithm works well on sorted data. It uses a binary search to find the first element of the target list or array in the larger list or array and then checks the remaining elements.
 
-## Sorting Algorithms(Bubble sort, Selection sort, Insertion sort, Merge sort, Quick sort, Heap sort, Counting sort, Radix sort, Bucket sort, Shell sort, Comb sort, Pigeonhole sort, Cycle sort, Bitonic sort, Pancake sort, Stooge sort, Strand sort, Bogo sort, Gnome sort, Cocktail sort, Odd-even sort, Slow sort, Tree sort, Cube sort, Flash sort, Smooth sort, Strand sort, Tim sort, Intro sort, Library sort, Tournament sort )
+## Sorting Algorithms
 
     1   Bubble sort: This algorithm repeatedly swaps adjacent elements that are out of order.
 
@@ -88,7 +88,7 @@
 
     31   Tournament sort: This algorithm sorts the list or array by repeatedly comparing adjacent elements and swapping them if they are in the wrong order.
 
-## Graph Algorithms( Breadth-first search, Depth-first search, Dijkstra's algorithm, Bellman-Ford algorithm, Floyd-Warshall algorithm, Kruskal's algorithm, Prim's algorithm, Topological sort, Johnson's algorithm, Tarjan's algorithm, Kosaraju's algorithm, Ford-Fulkerson algorithm, Edmonds-Karp algorithm, Hopcroft-Karp algorithm )
+## Graph Algorithms
 
     1 Breadth-first search: This algorithm starts at the root node and explores all of the neighbor nodes at the present depth prior to moving on to the nodes at the next depth level.
 
