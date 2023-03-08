@@ -24,6 +24,7 @@ function fibonacciSearch(arr, val) {
             fibMMm2 = fibM - fibMMm1;
         } else return i;
     }
-    if (fibMMm1 && arr[offset + 1] == val) return offset + 1;
+    if (fibMMm1 && arr[offset + 1] === val) return offset + 1;
     return -1;
 }
+export default fibonacciSearch;

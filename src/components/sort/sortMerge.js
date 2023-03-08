@@ -7,7 +7,7 @@ import interpolationSearch from "./algorithms/search/interpolation";
 import exponentialSearch from "./algorithms/search/exponential";
 import fibonacciSearch from "./algorithms/search/fibonacci";
 
-function SearchComponent() {
+function GraphComponent() {
   const [algorithm, setAlgorithm] = useState("");
   const [array, setArray] = useState("");
   const [target, setTarget] = useState("");
@@ -104,4 +104,4 @@ function SearchComponent() {
   );
 }
 
-export default SearchComponent;
+export default GraphComponent;

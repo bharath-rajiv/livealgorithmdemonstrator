@@ -62,4 +62,4 @@ let graph = [
 
 // console.log("Maximum flow:", maxFlow);
 
-// export default fordFulkerson;
+export default fordFulkerson;

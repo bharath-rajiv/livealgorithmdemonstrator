@@ -25,3 +25,4 @@ function breadthFirstSearch(graph, start, end) {
     }
     return false;
 }
+export default breadthFirstSearch;

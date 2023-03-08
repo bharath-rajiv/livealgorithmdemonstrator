@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import linearSearch from "../algorithms/search/linear";
+import linearSearch from "../../algorithms/search/linear";
 
 function LinearSearch() {
   const [array, setArray] = useState("");

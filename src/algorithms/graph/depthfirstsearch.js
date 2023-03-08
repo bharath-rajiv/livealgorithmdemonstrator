@@ -28,3 +28,5 @@ function depthFirstSearch(graph, root) {
     }
     return nodesLen;
 }
+
+export default depthFirstSearch;

@@ -5,9 +5,10 @@ function interpolationSearch(arr, val) {
     let end = arr.length - 1;
     while (arr[start] <= val && arr[end] >= val) {
         let pos = start + Math.floor((val - arr[start]) * (end - start) / (arr[end] - arr[start]));
-        if (arr[pos] == val) return pos;
+        if (arr[pos] === val) return pos;
         if (arr[pos] < val) start = pos + 1;
         else end = pos - 1;
     }
     return -1;
 }
+export default interpolationSearch;

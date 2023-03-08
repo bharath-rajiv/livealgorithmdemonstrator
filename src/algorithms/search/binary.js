@@ -12,5 +12,5 @@ function binarySearch(arr, val) {
     return arr[middle] === val ? middle : -1;
     }
 
-
+export default binarySearch;
     

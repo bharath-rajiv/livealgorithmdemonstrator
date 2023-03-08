@@ -1,7 +1,8 @@
 
 import './App.css';
-import LinearSearch from "./components/LinearSearch";
-import Main from './Main';
+import SearchComponent from './Main';
+import GraphComponent from './components/graph/graphMerge';
+
 
 function App() {
   return (
@@ -11,8 +12,10 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p> */}
-        <Main/>
-        <LinearSearch />
+        
+
+        <SearchComponent/>
+        <GraphComponent/>
         {/* <a
           className="App-link"
           href="https://reactjs.org"
