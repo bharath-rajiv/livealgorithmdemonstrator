@@ -15,3 +15,4 @@ function selectionSort(arr) {
     }
     return arr;
 }
+export default selectionSort;

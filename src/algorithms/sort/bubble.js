@@ -13,5 +13,6 @@ function bubbleSort(arr) {
     }
     return arr;
 }
+export default bubbleSort;
 //
 //Compare this snippet from algorithms\sort\selection.js:

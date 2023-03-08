@@ -6,3 +6,4 @@ function linearSearch(arr, val) {
   }
   return -1;
 }
+export default linearSearch;
