@@ -11,14 +11,14 @@ function flashSort(arr) {
         if (arr[i] < min) min = arr[i];
         if (arr[i] > max) max = arr[i];
     }
-    if (min == max) return arr;
+    if (min === max) return arr;
     let c1 = (m - 1) / (max - min);
     for (let k = 0; k < n; k++) {
         let j = ~~(c1 * (arr[k] - min));
         l[j]++;
     }
     for (let p = 1; p < m; p++) l[p] = l[p] + l[p - 1];
-    let hold = arr[0];
+    // let hold = arr[0];
     let c2 = (n - 1) * (c1);
     let newn = 0;
     let flash;

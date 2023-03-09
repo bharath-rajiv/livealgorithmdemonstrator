@@ -27,7 +27,11 @@ function dijkstra(graph, source) {
             }
         }
     }
-    return {dist,prev} ;
+    // returns the shortest distance from source to each node and the path  taken
+    console.log(dist,prev);
+    for(let i=0;i<prev.length;i++){
+        if (prev[i]===null){prev[i]= "No path"}}
+    return `Shortest distance from ${source} to each node is \n    {${dist}}\n   and the path taken is \n    {${prev}}` ;
 }
 function minDistance(dist, visited) {
     let min = Infinity;

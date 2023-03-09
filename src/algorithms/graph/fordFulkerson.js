@@ -3,7 +3,7 @@
 // param {number} source - The source node
 // param {number} destination - The destination node
 function fordFulkerson(graph, source, destination) {
-    let n = graph.length;
+    // let n = graph.length;
     let maxFlow = 0;
     let path = bfs(graph, source, destination);
     while (path) {
@@ -45,15 +45,15 @@ function bfs(graph, source, destination) {
     }
     path.reverse();
     return path.length === 1 ? null : path;
-}
-let graph = [
-    [0, 16, 13, 0, 0, 0],
-    [0, 0, 10, 12, 0, 0],
-    [0, 4, 0, 0, 14, 0],
-    [0, 0, 9, 0, 0, 20],
-    [0, 0, 0, 7, 0, 4],
-    [0, 0, 0, 0, 0, 0]
-];
+ }
+// let graph = [
+//     [0, 16, 13, 0, 0, 0],
+//     [0, 0, 10, 12, 0, 0],
+//     [0, 4, 0, 0, 14, 0],
+//     [0, 0, 9, 0, 0, 20],
+//     [0, 0, 0, 7, 0, 4],
+//     [0, 0, 0, 0, 0, 0]
+// ];
 
 // let source = 0;
 // let destination = 5;

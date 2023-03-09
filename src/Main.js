@@ -92,8 +92,8 @@ function SearchComponent() {
         <input type="text" value={target} onChange={handleTargetChange} />
       </label>
       <br />
-      <button onClick={handleSearch}>Search</button>
-      <button onClick={handleShowSource}>{showSource ? "Hide" : "Show"} Source</button>
+      <Button variant="contained" onClick={handleSearch}>Search</Button variant="contained">
+      <Button variant="contained" onClick={handleShowSource}>{showSource ? "Hide" : "Show"} Source</Button variant="contained">
       <br />
       <label>
         Result:

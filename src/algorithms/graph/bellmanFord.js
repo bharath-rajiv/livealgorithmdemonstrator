@@ -15,6 +15,6 @@ function bellmanFord(graph, source, destination) {
             }
         }
     }
-    return distance[destination];
+    return `Distance to reach ${destination} from ${source} is ${distance[destination]}`;
 }
 export default bellmanFord;

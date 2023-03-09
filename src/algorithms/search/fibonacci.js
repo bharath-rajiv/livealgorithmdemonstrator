@@ -1,6 +1,7 @@
 //Fibonacci Search in JavaScript
 //params: array, value
 function fibonacciSearch(arr, val) {
+    arr.sort((a, b) => a - b);
     let len = arr.length;
     let fibMMm2 = 0;
     let fibMMm1 = 1;

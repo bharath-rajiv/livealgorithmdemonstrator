@@ -1,6 +1,7 @@
 //Interpolation Search in JavaScript
 //params: array, value
 function interpolationSearch(arr, val) {
+    arr.sort((a, b) => a - b);
     let start = 0;
     let end = arr.length - 1;
     while (arr[start] <= val && arr[end] >= val) {

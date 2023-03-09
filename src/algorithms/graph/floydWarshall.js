@@ -18,7 +18,9 @@ function floydWarshall(graph) {
             }
         }
     }
-    return distance;
+    console.log(distance)
+    return `Shortest distance between all pairs of vertices is:\n${JSON.stringify(distance,null, 2)}`;
+
 }
 console.log(floydWarshall([
     [0, 4, 0, 0, 0, 0, 0, 8, 0],
@@ -32,4 +34,4 @@ console.log(floydWarshall([
     [0, 0, 2, 0, 0, 0, 6, 7, 0]
   ] ));
 
-// export default floydWarshall;
+export default floydWarshall;

@@ -7,7 +7,7 @@ function selectionSort(arr) {
         for (let j = i + 1; j < len; j++) {
             if (arr[j] < arr[min]) min = j;
         }
-        if (min != i) {
+        if (min !== i) {
             let temp = arr[i];
             arr[i] = arr[min];
             arr[min] = temp;

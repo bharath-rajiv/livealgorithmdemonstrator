@@ -1,6 +1,7 @@
 //Jump search in Javascript
 //paramters : array, value
 function jumpSearch(arr, val) {
+    arr.sort((a, b) => a - b);
     let len = arr.length;
     let step = Math.floor(Math.sqrt(len));
     let prev = 0;

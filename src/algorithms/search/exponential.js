@@ -1,6 +1,7 @@
 //Exponential search in Javascript
 //paramters : array, value
 function exponentialSearch(arr, val) {
+    arr.sort((a, b) => a - b);
     let len = arr.length;
     if (arr[0] === val) return 0;
     let i = 1;

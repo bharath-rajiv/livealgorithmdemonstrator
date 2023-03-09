@@ -1,11 +1,16 @@
 import React, { useState } from "react";
-import linearSearch from "./algorithms/search/linear";
-import binarySearch from "./algorithms/search/binary";
-import astarSearch from "./algorithms/search/astar";
-import jumpSearch from "./algorithms/search/jump";
-import interpolationSearch from "./algorithms/search/interpolation";
-import exponentialSearch from "./algorithms/search/exponential";
-import fibonacciSearch from "./algorithms/search/fibonacci";
+import "../../App.css";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
+import Button from "@mui/material/Button";
+import linearSearch from "../../algorithms/search/linear";
+import binarySearch from "../../algorithms/search/binary";
+import jumpSearch from "../../algorithms/search/jump";
+import interpolationSearch from "../../algorithms/search/interpolation";
+import exponentialSearch from "../../algorithms/search/exponential";
+import fibonacciSearch from "../../algorithms/search/fibonacci";
+import ternarySearch from "../../algorithms/search/ternary";
+import sublistSearch from "../../algorithms/search/sublist";
 
 function SearchComponent() {
   const [algorithm, setAlgorithm] = useState("");
@@ -14,7 +19,8 @@ function SearchComponent() {
   const [result, setResult] = useState("");
   const [showSource, setShowSource] = useState(false);
   const [sourceCode, setSourceCode] = useState("");
-  const[output,setOutput]=useState("")
+  const [output, setOutput] = useState("");
+  const [language, setLanguage] = useState("javascript");
 
   const handleArrayChange = (event) => {
     setArray(event.target.value);
@@ -22,28 +28,38 @@ function SearchComponent() {
 
   const handleTargetChange = (event) => {
     setTarget(event.target.value);
-  
   };
 
-
-
   const handleSearch = () => {
-    const arr = array.split(",").map(Number);
-    const tgt = Number(target);
-    if (result === -1) {
-      setOutput(`${tgt} not found in [${arr}]`);
+    let arr = [];
+    if (array.startsWith("[") && array.endsWith("]")) {
+      arr = JSON.parse(array);
+    } else if (
+      !array.includes(",") &&
+      array.trim().split(/\s+/).every((str) => !isNaN(Number(str)))
+    ) {
+      arr = array.trim().split(/\s+/).map(Number);
     } else {
-      setOutput(`${tgt} found at index ${result} in [${arr}]`);
+      arr = array.split(",").map(Number);
     }
+    let tgt = Number(target);
+    if(algorithm === 'sublist'){if (target.startsWith("[") && target.endsWith("]")) {
+      tgt = JSON.parse(target);
+    } else if (
+      !target.includes(",") &&
+      target.trim().split(/\s+/).every((str) => !isNaN(Number(str)))
+    ) {
+      tgt = target.trim().split(/\s+/).map(Number);
+    } else {
+      tgt = target.split(",").map(Number);
+    }}
+  
     if (algorithm === "linear") {
       setResult(linearSearch(arr, tgt));
       setSourceCode(linearSearch.toString());
     } else if (algorithm === "binary") {
       setResult(binarySearch(arr, tgt));
       setSourceCode(binarySearch.toString());
-    } else if (algorithm === "astar") {
-      setResult(astarSearch(arr, tgt));
-      setSourceCode(astarSearch.toString());
     } else if (algorithm === "jump") {
       setResult(jumpSearch(arr, tgt));
       setSourceCode(jumpSearch.toString());
@@ -56,10 +72,21 @@ function SearchComponent() {
     } else if (algorithm === "fibonacci") {
       setResult(fibonacciSearch(arr, tgt));
       setSourceCode(fibonacciSearch.toString());
-    } else {
+    } else if (algorithm === "sublist") {
+      setResult(sublistSearch(arr, tgt));
+      setSourceCode(sublistSearch.toString());
+    }else if (algorithm === "ternary") {
+      setResult(ternarySearch(arr, tgt));
+      setSourceCode(ternarySearch.toString());
+    }else {
       setResult("Please select a search algorithm");
     }
-    console.log(result,arr)
+    if (result === -1) {
+      setOutput(`${tgt} not found in [${arr}]`);
+    } else {
+      setOutput(`${tgt} found at index ${result} in [${arr}]`);
+    }
+    console.log(result, arr ,tgt);
   };
 
   const handleShowSource = () => {
@@ -67,41 +94,59 @@ function SearchComponent() {
   };
 
   return (
-    <div>
+    <div className="ui">
       <label>
         Select Search Algorithm:
-        <select value={algorithm} onChange={(e) => setAlgorithm(e.target.value)}>
+        <select
+          value={algorithm}
+          onChange={(e) => setAlgorithm(e.target.value)}
+        >
           <option value="">Select Algorithm</option>
-          <option value="linear">Linear Search</option>
           <option value="binary">Binary Search</option>
-          <option value="astar">A* Search</option>
-          <option value="jump">Jump Search</option>
-          <option value="interpolation">Interpolation Search</option>
-          <option value="exponential">Exponential Search</option>
-          <option value="fibonacci">Fibonacci Search</option>
-        </select>
-      </label>
-      <br />
-      <label>
-        Input Array:
-        <input type="text" value={array} onChange={handleArrayChange} />
-      </label>
-      <br />
-      <label>
-        Target:
-        <input type="text" value={target} onChange={handleTargetChange} />
-      </label>
-      <br />
-      <button onClick={handleSearch}>Search</button>
-      <button onClick={handleShowSource}>{showSource ? "Hide" : "Show"} Source</button>
-      <br />
-      <label>
-        Result:
-        <span>{output}</span>
-      </label>
-      {showSource && <pre>{sourceCode}</pre>}
-    </div>
-  );
+      <option value="exponential">Exponential Search</option>
+      <option value="fibonacci">Fibonacci Search</option>
+      <option value="interpolation">Interpolation Search</option>
+      <option value="jump">Jump Search</option>
+          <option value="linear">Linear Search</option>
+          <option value="sublist">SubList Search</option>
+          <option value="ternary">Ternary Search</option>
+    </select>
+  </label>
+  <br />
+  <label>
+    Input Array:
+    <input type="text" value={array} onChange={handleArrayChange} />
+  </label>
+  <br />
+  <label>
+    Target:
+    <input type="text" value={target} onChange={handleTargetChange} />
+  </label>
+  <br />
+  <br />
+  <div className="button-container">
+    <Button variant="contained" onClick={handleSearch}>
+      Search
+    </Button>
+    <Button variant="contained" onClick={handleShowSource}>
+      {showSource ? "Hide" : "Show"} Source
+    </Button>
+  </div>
+  <br />
+  <label>
+    Result:
+    <span>{output}</span>
+  </label>
+  <div className="source">
+  {showSource && (
+    <SyntaxHighlighter className="SyntaxHigh" language={language} style={vscDarkPlus}>
+      {sourceCode}
+    </SyntaxHighlighter>
+  )}
+</div>
+
+</div>
+);
 }
 
 export default SearchComponent;

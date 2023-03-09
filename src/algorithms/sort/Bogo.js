@@ -1,7 +1,7 @@
 //Bogo sort in JavaScript
 // param {number[]} arr - The array to be sorted
 function bogoSort(arr) {
-    let n = arr.length;
+    // let n = arr.length;
     while (!isSorted(arr)) {
         shuffle(arr);
     }

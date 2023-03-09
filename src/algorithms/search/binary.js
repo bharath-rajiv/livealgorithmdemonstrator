@@ -1,6 +1,7 @@
 //Binary search in Javascript
 //paramters :   array, value
 function binarySearch(arr, val) {
+    arr.sort((a, b) => a - b);
     let start = 0;
     let end = arr.length - 1;
     let middle = Math.floor((start + end) / 2);
@@ -11,6 +12,6 @@ function binarySearch(arr, val) {
     }
     return arr[middle] === val ? middle : -1;
     }
-
-export default binarySearch;
+console.log(binarySearch([1,4,2,7],2));// 1
+export default binarySearch; 
     

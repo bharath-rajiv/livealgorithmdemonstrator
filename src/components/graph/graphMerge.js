@@ -1,4 +1,5 @@
   import React, { useState } from "react";
+  import Button  from '@mui/material/Button';
   import bellmanFord from "../../algorithms/graph/bellmanFord";
   import dijkstra from "../../algorithms/graph/dijkstra";
   import floydWarshall from "../../algorithms/graph/floydWarshall";
@@ -12,6 +13,7 @@
   import depthFirstSearch from "../../algorithms/graph/depthfirstsearch";
   import breadthFirstSearch from "../../algorithms/graph/breadthfirst";
   import kosaraju from "../../algorithms/graph/kosaraju";
+  import astarSearch from "../../algorithms/graph/astar";
 
   function GraphComponent() {
     const [algorithm, setAlgorithm] = useState("");
@@ -54,6 +56,9 @@
           } else if (algorithm === "dijkstra") {
             setResult(dijkstra(grh, source));
             setSourceCode(dijkstra.toString());
+          } else if (algorithm === "astar") {
+            setResult(astarSearch(grh, source, destination));
+            setSourceCode(astarSearch.toString());
           } else if (algorithm === "floydWarshall") {
             setResult(floydWarshall(grh));
             setSourceCode(floydWarshall.toString());
@@ -73,12 +78,12 @@
             const maxFlow = hopcraftKarp(grh, source, destination);
             setResult(maxFlow);
             setSourceCode(hopcraftKarp.toString());
-            alert(`The maximum flow from ${source} to ${destination} is ${maxFlow}.`);
+            // alert(`The maximum flow from ${source} to ${destination} is ${maxFlow}.`);
           } else if (algorithm === "fordFulkerson") {
             const maxFlow = fordFulkerson(grh, source, destination);
             setResult(maxFlow);
             setSourceCode(fordFulkerson.toString());
-            alert(`The maximum flow from ${source} to ${destination} is ${maxFlow}.`);
+            // alert(`The maximum flow from ${source} to ${destination} is ${maxFlow}.`);
           } else if (algorithm === "johnson") {
             setResult(johnson(grh));
             setSourceCode(johnson.toString());
@@ -121,6 +126,7 @@
       <option value="depthFirstSearch">Depth-First Search</option>
       <option value="breadthFirstSearch">Breadth-First Search</option>
       <option value="kosaraju">Kosaraju's Algorithm</option>
+      <option value="astar">A* Search</option>
       </select>
       </label>
       <br />
@@ -141,6 +147,7 @@
   Enter Source Vertex:
   <input type="text" value={source} onChange={handleSourceChange} />
   </label>
+  <br />
   {algorithm === "bellmanFord" ||
   algorithm === "hopcraftKarp" ||
   algorithm === "fordFulkerson" ||
@@ -153,11 +160,11 @@
   </div>
   ) : null}
   <br />
-  <button onClick={handleAlgorithm}>Run Algorithm</button>
+  <Button variant="contained" onClick={handleAlgorithm}>Run Algorithm</Button >
   <br />
   {result ? <div>{result}</div> : null}
   <br />
-  <button onClick={handleShowSource}>Show Source Code</button>
+  <Button variant="contained" onClick={handleShowSource}>Show Source Code</Button>
   {showSource ? <pre>{sourceCode}</pre> : null}
   </div>
   );
