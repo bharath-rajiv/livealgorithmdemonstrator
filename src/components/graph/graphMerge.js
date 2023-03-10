@@ -14,6 +14,9 @@
   import breadthFirstSearch from "../../algorithms/graph/breadthfirst";
   import kosaraju from "../../algorithms/graph/kosaraju";
   import astarSearch from "../../algorithms/graph/astar";
+  import "../sortsearchmerge.css";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 
   function GraphComponent() {
     const [algorithm, setAlgorithm] = useState("");
@@ -23,6 +26,7 @@
     const [graph, setGraph] = useState("");
     const [source, setSource] = useState("");
     const [destination, setDestination] = useState("");
+    const [language, setLanguage] = useState("javascript");
 
     const handleGraphChange = (event) => {
       setGraph(event.target.value);
@@ -108,7 +112,7 @@
       };
       
       return (
-      <div>
+      <div className="ui">
       <label>
       Select Graph Algorithm:
       <select value={algorithm} onChange={(e) => setAlgorithm(e.target.value)}>
@@ -160,12 +164,24 @@
   </div>
   ) : null}
   <br />
+  <div className="button-container">
   <Button variant="contained" onClick={handleAlgorithm}>Run Algorithm</Button >
   <br />
-  {result ? <div>{result}</div> : null}
-  <br />
   <Button variant="contained" onClick={handleShowSource}>Show Source Code</Button>
-  {showSource ? <pre>{sourceCode}</pre> : null}
+  </div>
+  <br />
+  <label>
+
+  {result ? <div>{result}</div> : null}
+  </label>
+  <div className="source">
+  {showSource && (
+    <SyntaxHighlighter className="SyntaxHigh" language={language} style={vscDarkPlus}>
+      {sourceCode}
+    </SyntaxHighlighter>
+  )}
+</div>
+
   </div>
   );
   }

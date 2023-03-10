@@ -1,5 +1,8 @@
   import React, { useState } from "react";
+  import "../sortsearchmerge.css";
   import Button  from '@mui/material/Button';
+  import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+  import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
   import bitonicSort from "../../algorithms/sort/bitonic";
   import bogoSort from "../../algorithms/sort/bogo";
   import bubbleSort from "../../algorithms/sort/bubble";
@@ -31,6 +34,7 @@
   import tournamentSort from "../../algorithms/sort/tournament";
   import treeSort from "../../algorithms/sort/tree";
   function SortComponent() {
+    const [language, setLanguage] = useState("javascript");
     const [algorithm, setAlgorithm] = useState("");
     const [array, setArray] = useState("");
     let sortedArray = [];
@@ -183,59 +187,77 @@
   setShowSource(!showSource);
   };
   return (
-  <div>
-    <label>
-      Select Sorting Algorithm:
-      <select value={algorithm} onChange={(e) => setAlgorithm(e.target.value)}>
-        <option value="">Select Algorithm</option>
-        <option value="bitonic">Bitonic Sort</option>
-        <option value="bogo">Bogo Sort</option>
-        <option value="bubble">Bubble Sort</option>
-        <option value="bucket">Bucket Sort</option>
-        <option value="cocktail">Cocktail Sort</option>
-        <option value="comb">Comb Sort</option>
-        <option value="counting">Counting Sort</option>
-        <option value="cycle">Cycle Sort</option>
-        <option value="cube">Cube Sort</option>
-        <option value="gnome">Gnome Sort</option>
-        <option value="heap">Heap Sort</option>
-        <option value="insertion">Insertion Sort</option>
-        <option value="intro">Intro Sort</option>
-        <option value="merge">Merge Sort</option>
-        <option value="oddEven">Odd-Even Sort</option>
-        <option value="pancake">Pancake Sort</option>
-        <option value="quick">Quick Sort</option>
-        <option value="radix">Radix Sort</option>
-        <option value="selection">Selection Sort</option>
-        <option value="shell">Shell Sort</option>
-        <option value="smooth">Smooth Sort</option>
-        <option value="stooge">Stooge Sort</option>
-        <option value="tim">Tim Sort</option>
-        <option value="tree">Tree Sort</option>
-        <option value="slow">Slow Sort</option>
-        <option value="sleep">Sleep Sort</option>
-        <option value="strand">Strand Sort</option>
-        <option value="flash">Flash Sort</option>
-        <option value="tournament">Tournament Sort</option>
-        <option value="library">Library Sort</option>
-  <option value="pigeonhole">Pigeonhole Sort</option>
-  </select>
-  </label>
-  <br />
-  <label>
-  Input Array:
-  <input type="text" value={array} onChange={handleArrayChange} />
-  </label>
-  <br />
-  <Button variant="contained" onClick={handleSort}>Sort</Button>
-  <Button variant="contained" onClick={handleShowSource}>{showSource ? "Hide" : "Show"} Source</Button>
-  <br />
-  <label>
-  Result:
-  <span>{output}</span>
-  </label>
-  {showSource && <pre>{sourceCode}</pre>}
+    <div className="ui">
+      <label>
+        Select Sorting Algorithm:
+        <select
+          value={algorithm}
+          onChange={(e) => setAlgorithm(e.target.value)}
+        >
+          <option value="">Select Algorithm</option>
+          <option value="bitonic">Bitonic Sort</option>
+          <option value="bogo">Bogo Sort</option>
+          <option value="bubble">Bubble Sort</option>
+          <option value="bucket">Bucket Sort</option>
+          <option value="cocktail">Cocktail Sort</option>
+          <option value="comb">Comb Sort</option>
+          <option value="counting">Counting Sort</option>
+          <option value="cycle">Cycle Sort</option>
+          <option value="cube">Cube Sort</option>
+          <option value="gnome">Gnome Sort</option>
+          <option value="heap">Heap Sort</option>
+          <option value="insertion">Insertion Sort</option>
+          <option value="intro">Intro Sort</option>
+          <option value="merge">Merge Sort</option>
+          <option value="oddEven">Odd-Even Sort</option>
+          <option value="pancake">Pancake Sort</option>
+          <option value="quick">Quick Sort</option>
+          <option value="radix">Radix Sort</option>
+          <option value="selection">Selection Sort</option>
+          <option value="shell">Shell Sort</option>
+          <option value="smooth">Smooth Sort</option>
+          <option value="stooge">Stooge Sort</option>
+          <option value="tim">Tim Sort</option>
+          <option value="tree">Tree Sort</option>
+          <option value="slow">Slow Sort</option>
+          <option value="sleep">Sleep Sort</option>
+          <option value="strand">Strand Sort</option>
+          <option value="flash">Flash Sort</option>
+          <option value="tournament">Tournament Sort</option>
+          <option value="library">Library Sort</option>
+          <option value="pigeonhole">Pigeonhole Sort</option>
+        </select>
+      </label>
+      <br />
+      <label>
+Input Array:
+<input type="text" value={array} onChange={handleArrayChange} />
+</label>
+<br />
+<div className="button-container">
+    <Button variant="contained" onClick={handleSort}>
+      Sort
+    </Button>
+    <Button variant="contained" onClick={handleShowSource}>
+      {showSource ? "Hide" : "Show"} Source
+    </Button>
   </div>
-  );
-  }
-  export default SortComponent;
+  <br />
+  <label>
+    Result:
+    <span>{output}</span>
+  </label>
+  <div className="source">
+  {showSource && (
+    <SyntaxHighlighter className="SyntaxHigh" language={language} style={vscDarkPlus}>
+      {sourceCode}
+    </SyntaxHighlighter>
+  )}
+</div>
+</div>
+);
+}
+
+export default SortComponent;
+
+

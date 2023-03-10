@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../../App.css";
+import "../sortsearchmerge.css";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import Button from "@mui/material/Button";

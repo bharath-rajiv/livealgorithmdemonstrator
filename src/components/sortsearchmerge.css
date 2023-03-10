@@ -1,0 +1,54 @@
+
+  .button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .button-container button {
+    padding: 10px;
+    border: none;
+    background-color: #9e2020;
+    cursor: pointer;
+  }
+  .source {
+  
+    width: 80%;
+    overflow-x: auto;
+    margin: 0 auto; 
+  }
+  .ui{
+    padding-top: 10%;
+   width: 100%;
+  }
+  
+  .SyntaxHigh {
+    background-color: #282c34;
+    color: #fff;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 1em;
+    line-height: 1.5em;
+    white-space: pre;
+    padding: 0.5em;
+    margin: 0;
+    overflow: auto;
+    border-radius: 20px;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .source {
+      width: 90%;
+      margin: 0 auto;
+    }
+    .ui{
+        padding-top: 30%;
+    }
+  }
+  /* body{
+    background-color: #282c34;
+   
+  } */
+  .Search{
+    color: #fff;
+  }
+ 
