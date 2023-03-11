@@ -33,6 +33,7 @@
   import timSort from "../../algorithms/sort/tim";
   import tournamentSort from "../../algorithms/sort/tournament";
   import treeSort from "../../algorithms/sort/tree";
+  import { bitoniccode,bogocode,bubblecode,bucketcode,cocktailcode,combcode,countingcode,cubecode,cyclecode,flashcode,gnomecode,heapcode,insertioncode,introcode,librarycode,mergecode,oddevencode,pancakecode,pigeonholecode,quickcode,radixcode,selectioncode,shellcode,slowcode,smoothcode,stoogecode,strandcode,timcode,tournamentcode,treecode } from "../../algorithms/graph/sourcecode";
   function SortComponent() {
     const [language, setLanguage] = useState("javascript");
     const [algorithm, setAlgorithm] = useState("");
@@ -56,126 +57,126 @@
         arr = array.split(" ").map(Number);
       }
   switch (algorithm) {
-  case "bitonic":
-  sortedArray = bitonicSort(arr);
-  setSourceCode(bitonicSort.toString());
-  break;
-  case "bogo":
-  sortedArray = bogoSort(arr);
-  setSourceCode(bogoSort.toString());
-  break;
-  case "bubble":
-  sortedArray = bubbleSort(arr);
-  setSourceCode(bubbleSort.toString());
-  break;
-  case "cocktail":
-  sortedArray = cocktailSort(arr);
-  setSourceCode(cocktailSort.toString());
-  break;
-  case "comb":
-  sortedArray = combSort(arr);
-  setSourceCode(combSort.toString());
-  break;
-  case "counting":
-  sortedArray = countingSort(arr);
-  setSourceCode(countingSort.toString());
-  break;
-  case "cycle":
-  sortedArray = cycleSort(arr);
-  setSourceCode(cycleSort.toString());
-  break;
-  case "cube":
-  sortedArray = cubeSort(arr);
-  setSourceCode(cubeSort.toString());
-  break;
-  case "gnome":
-  sortedArray = gnomeSort(arr);
-  setSourceCode(gnomeSort.toString());
-  break;
-  case "heap":
-  sortedArray = heapSort(arr);
-  setSourceCode(heapSort.toString());
-  break;
-  case "insertion":
-  sortedArray = insertionSort(arr);
-  setSourceCode(insertionSort.toString());
-  break;
-  case "intro":
-  sortedArray = introSort(arr);
-  setSourceCode(introSort.toString());
-  break;
-  case "merge":
-  sortedArray = mergeSort(arr);
-  setSourceCode(mergeSort.toString());
-  break;
-  case "oddEven":
-  sortedArray = oddEvenSort(arr);
-  setSourceCode(oddEvenSort.toString());
-  break;
-  case "pancake":
-  sortedArray = pancakeSort(arr);
-  setSourceCode(pancakeSort.toString());
-  break;
-  case "quick":
-  sortedArray = quickSort(arr);
-  setSourceCode(quickSort.toString());
-  break;
-  case "radix":
-  sortedArray = radixSort(arr);
-  setSourceCode(radixSort.toString());
-  break;
-  case "selection":
-  sortedArray = selectionSort(arr);
-  setSourceCode(selectionSort.toString());
-  break;
-  case "shell":
-  sortedArray = shellSort(arr);
-  setSourceCode(shellSort.toString());
-  break;
-  case "smooth":
-  sortedArray = smoothSort(arr);
-  setSourceCode(smoothSort.toString());
-  break;
-  case "stooge":
-  sortedArray = stoogeSort(arr);
-  setSourceCode(stoogeSort.toString());
-  break;
-  case "tim":
-  sortedArray = timSort(arr);
-  setSourceCode(timSort.toString());
-  break;
-  case "tree":
-  sortedArray = treeSort(arr);
-  setSourceCode(treeSort.toString());
-  break;
-  case "slow":
-  sortedArray = slowSort(arr);
-  setSourceCode(slowSort.toString());
-  break;
-  case "strand":
-  sortedArray = strandSort(arr);
-  setSourceCode(strandSort.toString());
-  break;
-  case "flash":
-  sortedArray = flashSort(arr);
-  setSourceCode(flashSort.toString());
-  break;
-  case "tournament":
-  sortedArray = tournamentSort(arr);
-  setSourceCode(tournamentSort.toString());
-  break;
-  case "library":
-  sortedArray = librarySort(arr);
-  setSourceCode(librarySort.toString());
-  break;
-  case "pigeonhole":
-  sortedArray = pigeonholeSort(arr);
-  setSourceCode(pigeonholeSort.toString());
-  break;
-  case"bucket":
-  sortedArray = bucketSort(arr);
-  setSourceCode(bucketSort.toString());
-  break;
+    case "bitonic":
+      sortedArray = bitonicSort(arr);
+      setSourceCode(bitoniccode);
+      break;
+    case "bogo":
+      sortedArray = bogoSort(arr);
+      setSourceCode(bogocode);
+      break;
+    case "bubble":
+      sortedArray = bubbleSort(arr);
+      setSourceCode(bubblecode);
+      break;
+    case "cocktail":
+      sortedArray = cocktailSort(arr);
+      setSourceCode(cocktailcode);
+      break;
+    case "comb":
+      sortedArray = combSort(arr);
+      setSourceCode(combcode);
+      break;
+    case "counting":
+      sortedArray = countingSort(arr);
+      setSourceCode(countingcode);
+      break;
+    case "cycle":
+      sortedArray = cycleSort(arr);
+      setSourceCode(cyclecode);
+      break;
+    case "cube":
+      sortedArray = cubeSort(arr);
+      setSourceCode(cubecode);
+      break;
+    case "gnome":
+      sortedArray = gnomeSort(arr);
+      setSourceCode(gnomecode);
+      break;
+    case "heap":
+      sortedArray = heapSort(arr);
+      setSourceCode(heapcode);
+      break;
+    case "insertion":
+      sortedArray = insertionSort(arr);
+      setSourceCode(insertioncode);
+      break;
+    case "intro":
+      sortedArray = introSort(arr);
+      setSourceCode(introcode);
+      break;
+    case "merge":
+      sortedArray = mergeSort(arr);
+      setSourceCode(mergecode);
+      break;
+    case "oddEven":
+      sortedArray = oddEvenSort(arr);
+      setSourceCode(oddevencode);
+      break;
+    case "pancake":
+      sortedArray = pancakeSort(arr);
+      setSourceCode(pancakecode);
+      break;
+    case "quick":
+      sortedArray = quickSort(arr);
+      setSourceCode(quickcode);
+      break;
+    case "radix":
+      sortedArray = radixSort(arr);
+      setSourceCode(radixcode);
+      break;
+    case "selection":
+      sortedArray = selectionSort(arr);
+      setSourceCode(selectioncode);
+      break;
+    case "shell":
+      sortedArray = shellSort(arr);
+      setSourceCode(shellcode);
+      break;
+    case "smooth":
+      sortedArray = smoothSort(arr);
+      setSourceCode(smoothcode);
+      break;
+    case "stooge":
+      sortedArray = stoogeSort(arr);
+      setSourceCode(stoogecode);
+      break;
+    case "tim":
+      sortedArray = timSort(arr);
+      setSourceCode(timcode);
+      break;
+    case "tree":
+      sortedArray = treeSort(arr);
+      setSourceCode(treecode);
+      break;
+    case "slow":
+      sortedArray = slowSort(arr);
+      setSourceCode(slowcode);
+      break;
+    case "strand":
+      sortedArray = strandSort(arr);
+      setSourceCode(strandcode);
+      break;
+    case "flash":
+      sortedArray = flashSort(arr);
+      setSourceCode(flashcode);
+      break;
+    case "tournament":
+      sortedArray = tournamentSort(arr);
+      setSourceCode(tournamentcode);
+      break;
+    case "library":
+      sortedArray = librarySort(arr);
+      setSourceCode(librarycode);
+      break;
+    case "pigeonhole":
+      sortedArray = pigeonholeSort(arr);
+      setSourceCode(pigeonholecode);
+      break;
+    case "bucket":
+      sortedArray = bucketSort(arr);
+      setSourceCode(bucketcode);
+      break;
   default:
   setOutput("Please select a sorting algorithm");
   }

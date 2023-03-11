@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import {linearcode,binarycode,jumpcode,interpolationcode,exponentialcode,
+fibonaccicode,ternarycode,sublistcode,} from '../../algorithms/graph/sourcecode';
 import "../sortsearchmerge.css";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
@@ -11,6 +13,8 @@ import exponentialSearch from "../../algorithms/search/exponential";
 import fibonacciSearch from "../../algorithms/search/fibonacci";
 import ternarySearch from "../../algorithms/search/ternary";
 import sublistSearch from "../../algorithms/search/sublist";
+import CopyToClipboard from "react-copy-to-clipboard";
+import {FaRegCopy} from "react-icons/fa";
 
 function SearchComponent() {
   const [algorithm, setAlgorithm] = useState("");
@@ -53,31 +57,32 @@ function SearchComponent() {
     } else {
       tgt = target.split(",").map(Number);
     }}
-  
+    
+    
     if (algorithm === "linear") {
       setResult(linearSearch(arr, tgt));
-      setSourceCode(linearSearch.toString());
+      setSourceCode(linearcode);
     } else if (algorithm === "binary") {
       setResult(binarySearch(arr, tgt));
-      setSourceCode(binarySearch.toString());
+      setSourceCode(binarycode);
     } else if (algorithm === "jump") {
       setResult(jumpSearch(arr, tgt));
-      setSourceCode(jumpSearch.toString());
+      setSourceCode(jumpcode);
     } else if (algorithm === "interpolation") {
       setResult(interpolationSearch(arr, tgt));
-      setSourceCode(interpolationSearch.toString());
+      setSourceCode(interpolationcode);
     } else if (algorithm === "exponential") {
       setResult(exponentialSearch(arr, tgt));
-      setSourceCode(exponentialSearch.toString());
+      setSourceCode(exponentialcode);
     } else if (algorithm === "fibonacci") {
       setResult(fibonacciSearch(arr, tgt));
-      setSourceCode(fibonacciSearch.toString());
+      setSourceCode(fibonaccicode);
     } else if (algorithm === "sublist") {
       setResult(sublistSearch(arr, tgt));
-      setSourceCode(sublistSearch.toString());
+      setSourceCode(sublistcode);
     }else if (algorithm === "ternary") {
       setResult(ternarySearch(arr, tgt));
-      setSourceCode(ternarySearch.toString());
+      setSourceCode(ternarycode);
     }else {
       setResult("Please select a search algorithm");
     }
@@ -138,6 +143,14 @@ function SearchComponent() {
     <span>{output}</span>
   </label>
   <div className="source">
+    <CopyToClipboard className="copy-code" text={sourceCode}>
+    <span className="copy-icon-wrapper">
+      <button>
+
+            <FaRegCopy className="copy-icon" />
+      </button>
+          </span>
+    </CopyToClipboard>
   {showSource && (
     <SyntaxHighlighter className="SyntaxHigh" language={language} style={vscDarkPlus}>
       {sourceCode}

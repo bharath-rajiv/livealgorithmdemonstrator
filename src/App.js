@@ -26,9 +26,9 @@ function App() {
     <Navbar/>
       
     <Routes>
-      <Route path="/livealgorithmdemonstrator/search" element={<SearchComponent/>}/>
-      <Route path="/livealgorithmdemonstrator/sort" element={<SortComponent/>}/>
-      <Route path="/livealgorithmdemonstrator/search" element={<GraphComponent/>}/>
+      <Route path="/search" element={<SearchComponent/>}/>
+      <Route path="/sort" element={<SortComponent/>}/>
+      <Route path="/graph" element={<GraphComponent/>}/>
     </Routes> 
     
 

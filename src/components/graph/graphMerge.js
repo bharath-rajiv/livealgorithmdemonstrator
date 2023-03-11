@@ -17,7 +17,7 @@
   import "../sortsearchmerge.css";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
-
+import { astarCode,bellmanfordCode,breadthfirstCode,depthfirstCode,dijkstraCode,floydwarshallCode,fordFullkersonCode,hopcroftKarpCode,johnsoncode ,kosarajuCode,kruskalCode,primCode,tarjancode,topologicalcode} from "../../algorithms/graph/sourcecode";
   function GraphComponent() {
     const [algorithm, setAlgorithm] = useState("");
     const [result, setResult] = useState("");
@@ -56,54 +56,55 @@ import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 
           if (algorithm === "bellmanFord") {
             setResult(bellmanFord(grh, source, destination));
-            setSourceCode(bellmanFord.toString());
+            setSourceCode(bellmanfordCode);
           } else if (algorithm === "dijkstra") {
             setResult(dijkstra(grh, source));
-            setSourceCode(dijkstra.toString());
+            setSourceCode(dijkstraCode);
           } else if (algorithm === "astar") {
             setResult(astarSearch(grh, source, destination));
-            setSourceCode(astarSearch.toString());
+            setSourceCode(astarCode);
           } else if (algorithm === "floydWarshall") {
             setResult(floydWarshall(grh));
-            setSourceCode(floydWarshall.toString());
+            setSourceCode(floydwarshallCode);
           } else if (algorithm === "kruskal") {
             setResult(kruskal(grh));
-            setSourceCode(kruskal.toString());
+            setSourceCode(kruskalCode);
           } else if (algorithm === "prim") {
             setResult(prim(grh));
-            setSourceCode(prim.toString());
+            setSourceCode(primCode);
           } else if (algorithm === "tarjan") {
             setResult(tarjan(grh));
-            setSourceCode(tarjan.toString());
+            setSourceCode(tarjancode);
           } else if (algorithm === "topologicalSort") {
             setResult(topologicalSort(grh));
-            setSourceCode(topologicalSort.toString());
+            setSourceCode(topologicalcode);
           } else if (algorithm === "hopcraftKarp") {
             const maxFlow = hopcraftKarp(grh, source, destination);
             setResult(maxFlow);
-            setSourceCode(hopcraftKarp.toString());
+            setSourceCode(hopcroftKarpCode);
             // alert(`The maximum flow from ${source} to ${destination} is ${maxFlow}.`);
           } else if (algorithm === "fordFulkerson") {
             const maxFlow = fordFulkerson(grh, source, destination);
             setResult(maxFlow);
-            setSourceCode(fordFulkerson.toString());
+            setSourceCode(fordFullkersonCode);
             // alert(`The maximum flow from ${source} to ${destination} is ${maxFlow}.`);
           } else if (algorithm === "johnson") {
             setResult(johnson(grh));
-            setSourceCode(johnson.toString());
+            setSourceCode(johnsoncode);
           } else if (algorithm === "depthFirstSearch") {
             setResult(depthFirstSearch(grh, source));
-            setSourceCode(depthFirstSearch.toString());
+            setSourceCode(depthfirstCode);
           } else if (algorithm === "breadthFirstSearch") {
             setResult(breadthFirstSearch(grh, source, destination));
-            setSourceCode(breadthFirstSearch.toString());
+            setSourceCode(breadthfirstCode);
           } else if (algorithm === "kosaraju") {
             setResult(kosaraju(grh));
-            setSourceCode(kosaraju.toString());
+            setSourceCode(kosarajuCode);
           } else {
             setResult("Please select a graph algorithm");
           }
           console.log(result)
+          
         };
         
       
