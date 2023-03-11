@@ -145,10 +145,10 @@ function SearchComponent() {
   <div className="source">
     <CopyToClipboard className="copy-code" text={sourceCode}>
     <span className="copy-icon-wrapper">
-      <button>
+      {/* <button> */}
 
             <FaRegCopy className="copy-icon" />
-      </button>
+      {/* </button> */}
           </span>
     </CopyToClipboard>
   {showSource && (

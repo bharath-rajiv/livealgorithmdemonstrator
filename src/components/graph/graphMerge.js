@@ -15,6 +15,8 @@
   import kosaraju from "../../algorithms/graph/kosaraju";
   import astarSearch from "../../algorithms/graph/astar";
   import "../sortsearchmerge.css";
+  import CopyToClipboard from "react-copy-to-clipboard";
+import {FaRegCopy} from "react-icons/fa";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { astarCode,bellmanfordCode,breadthfirstCode,depthfirstCode,dijkstraCode,floydwarshallCode,fordFullkersonCode,hopcroftKarpCode,johnsoncode ,kosarajuCode,kruskalCode,primCode,tarjancode,topologicalcode} from "../../algorithms/graph/sourcecode";
@@ -104,7 +106,7 @@ import { astarCode,bellmanfordCode,breadthfirstCode,depthfirstCode,dijkstraCode,
             setResult("Please select a graph algorithm");
           }
           console.log(result)
-          
+
         };
         
       
@@ -176,6 +178,14 @@ import { astarCode,bellmanfordCode,breadthfirstCode,depthfirstCode,dijkstraCode,
   {result ? <div>{result}</div> : null}
   </label>
   <div className="source">
+  <CopyToClipboard className="copy-code" text={sourceCode}>
+    <span className="copy-icon-wrapper">
+      {/* <button> */}
+
+            <FaRegCopy className="copy-icon" />
+      {/* </button> */}
+          </span>
+    </CopyToClipboard>
   {showSource && (
     <SyntaxHighlighter className="SyntaxHigh" language={language} style={vscDarkPlus}>
       {sourceCode}

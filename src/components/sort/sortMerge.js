@@ -34,6 +34,9 @@
   import tournamentSort from "../../algorithms/sort/tournament";
   import treeSort from "../../algorithms/sort/tree";
   import { bitoniccode,bogocode,bubblecode,bucketcode,cocktailcode,combcode,countingcode,cubecode,cyclecode,flashcode,gnomecode,heapcode,insertioncode,introcode,librarycode,mergecode,oddevencode,pancakecode,pigeonholecode,quickcode,radixcode,selectioncode,shellcode,slowcode,smoothcode,stoogecode,strandcode,timcode,tournamentcode,treecode } from "../../algorithms/graph/sourcecode";
+  import CopyToClipboard from "react-copy-to-clipboard";
+  import {FaRegCopy} from "react-icons/fa";
+
   function SortComponent() {
     const [language, setLanguage] = useState("javascript");
     const [algorithm, setAlgorithm] = useState("");
@@ -249,6 +252,14 @@ Input Array:
     <span>{output}</span>
   </label>
   <div className="source">
+  <CopyToClipboard className="copy-code" text={sourceCode}>
+    <span className="copy-icon-wrapper">
+      {/* <button> */}
+
+            <FaRegCopy className="copy-icon" />
+      {/* </button> */}
+          </span>
+    </CopyToClipboard>
   {showSource && (
     <SyntaxHighlighter className="SyntaxHigh" language={language} style={vscDarkPlus}>
       {sourceCode}
